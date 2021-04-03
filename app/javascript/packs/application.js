@@ -23,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el: "#vue",
       channels: {
         SongsChannel: {
-          connected() {
-            console.log("connected");
-          },
           received(data) {
             const json = data;
             this.$store.dispatch("setSong", json.data.attributes);
