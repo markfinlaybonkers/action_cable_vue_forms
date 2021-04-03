@@ -1,0 +1,23 @@
+= form_with(model: song) do |form|
+  - if song.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(song.errors.count, "error")
+        prohibited this song from being saved:
+      %ul
+        - song.errors.each do |error|
+          %li= error.full_message
+  .field
+    = form.label :artist
+    = form.text_field :artist
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :gernre
+    = form.text_field :gernre
+  .field
+    = form.label :length
+    = form.number_field :length
+  .actions
+    = form.submit

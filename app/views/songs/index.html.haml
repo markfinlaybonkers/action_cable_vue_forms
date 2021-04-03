@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Songs
+%table
+  %thead
+    %tr
+      %th Artist
+      %th Title
+      %th Gernre
+      %th Length
+      %th{:colspan => "3"}
+  %tbody
+    - @songs.each do |song|
+      %tr
+        %td= song.artist
+        %td= song.title
+        %td= song.gernre
+        %td= song.length
+        %td= link_to 'Show', song
+        %td= link_to 'Edit', edit_song_path(song)
+        %td= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Song', new_song_path
