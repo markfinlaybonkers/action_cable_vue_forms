@@ -1,14 +1,14 @@
 <template>
   <div>
-    <button @click="editing = !editing">Edit</button>
+    <button @click="editing = !editing">
+      {{ editing ? 'Cancel' : 'Edit' }}
+    </button>
+    <button @click="save" v-if="editing">Save</button>
     <br>
     <br>
     <form ref="form">
       <Input v-for="attribute in inputAttributes" :attribute="attribute" :record="record" :key="attribute[0]" :type="attribute[1]" :editing="editing" />
       <Select v-for="attribute in selectAttributes" :record="record" :options="gernres" :attribute="attribute" :key="attribute" :editing="editing"></Select>
-      <br>
-      <br>
-      <button @click="save">Save</button>
     </form>
   </div>
 </template>
